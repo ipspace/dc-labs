@@ -1,2 +1,5 @@
-# dc-labs
-Data Center Design Assignments
+# Data Center Design Assignments
+
+This is the repository for the design assignments of the
+_[Building Next-Generation Data Centers](https://www.ipspace.net/Building_Next-Generation_Data_Center)_
+online course.

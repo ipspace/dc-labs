@@ -1,0 +1,56 @@
+<div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+  <div class="navbar-header">
+      <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="{% trans %}Table of Contents{% endtrans %}">
+          <span class="fa fa-angle-down"></span>
+      </button>
+  </div>
+
+  {% macro toc_item(item) %}
+    {%- if item.level <= config.theme.navigation_depth %}
+      <li class="nav-item" data-level="{{ item.level }}"><a href="{{ item.url }}" class="nav-link">{{ item.title }}</a>
+        <ul class="nav flex-column">
+          {%- for child in item.children %}
+              {{- toc_item(child) }}
+          {%- endfor %}
+        </ul>
+      </li>
+    {%- endif %}
+  {%- endmacro %}
+  {% set toc_f = page.toc|first %}
+  {% set toc_l = page.toc|length %}
+  {% if toc_l > 1 or toc_f.children|length %}
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+      <ul class="nav flex-column">
+      {%- for item in page.toc %}
+          {{ toc_item(item) }}
+      {%- endfor %}
+      </ul>
+    </div>
+  {% endif %}
+  {% macro nav_item(item) %}
+    {% if item.url or item.children %}
+    <li class="nav-item" data-level="{{ item.level }}">
+      {% if item.url %}
+        <a href="{{ item.url }}" class="nav-link">{{ item.title }}</a>
+      {% else %}
+        <a class="nav-link">{{ item.title }}</a>
+      {% endif %}
+      {% if item.children %}
+        <ul class="nav flex-column">
+          {%- for child in item.children %}
+              {{- nav_item(child) }}
+          {%- endfor %}
+        </ul>
+      {% endif %}
+    </li>
+    {% endif %}
+  {%- endmacro %}
+  <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary" style="margin-top: 1em;">
+    <ul class="nav flex-column">
+    {%- for item in nav %}
+        {{ nav_item(item) }}
+    {%- endfor %}
+    </ul>
+  </div>
+
+</div>

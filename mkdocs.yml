@@ -1,0 +1,36 @@
+# MKDOCS navigation structure and configuration
+---
+site_name: Data Center
+docs_dir: docs
+site_dir: _html
+repo_url: https://github.com/ipspace/dc-labs
+site_url: https://bgplabs.net/
+site_description: Design Assignments for the Next-Generation Data Centers online course
+site_author: Ivan Pepelnjak, ipSpace.net AG
+copyright: (C) 2023 Ivan Pepelnjak (ipSpace.net AG)
+plugins:
+- search
+nav:
+- Home: index.md
+- Challenges:
+  - 1-services-requirements.md
+  - 4-storage.md
+  - 5-small-fabric.md
+  - 6-robust-layer-2-fabric.md
+  - 7-overlay.md
+  - 11-extend-fabric.md
+
+markdown_extensions:
+- footnotes
+- abbr
+- def_list
+- admonition
+- attr_list
+- sane_lists
+- smarty
+- nl2br
+
+theme:
+  name: mkdocs
+  custom_dir: _mkdocs_theme
+  navigation_depth: 3
