@@ -4,7 +4,7 @@ site_name: Data Center
 docs_dir: docs
 site_dir: _html
 repo_url: https://github.com/ipspace/dc-labs
-site_url: https://bgplabs.net/
+site_url: https://ipspace.github.io/dc-labs/
 site_description: Design Assignments for the Next-Generation Data Centers online course
 site_author: Ivan Pepelnjak, ipSpace.net AG
 copyright: (C) 2023 Ivan Pepelnjak (ipSpace.net AG)
